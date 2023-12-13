@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gussing Game</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='logo.gif') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
+        <style>
+
+            *{
+                padding: 0%;
+                margin: 0%;
+                font-family: 'Ubuntu', sans-serif;
+                overflow-y : hidden;
+            }
+
+            html{
+                background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            }
+
+            input{
+                height: 29px;
+                width: 80px;
+                border-radius: 10px;
+                outline: none;
+                font-size: 1.125rem;
+                text-align: center;
+                border: 1px solid #8b8b8b;
+                background-color: #f8fff8;
+            }
+
+            input::-webkit-inner-spin-button,
+            input::-webkit-outer-spin-button {
+                -webkit-appearance: none; /* Webkit browsers (Safari, Chrome) */
+                margin: 0; /* Remove the margin */
+            }
+
+            .button-7 {
+                background-color: #0095ff;
+                border: 1px solid transparent;
+                border-radius: 3px;
+                box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+                box-sizing: border-box;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 1.15385;
+                margin: 0;
+                outline: none;
+                padding: 8px .8em;
+                position: relative;
+                text-align: center;
+                text-decoration: none;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                vertical-align: baseline;
+                white-space: nowrap;
+                margin: 30px 0px;
+            }
+
+            .button-7:hover,
+            .button-7:focus {
+                background-color: #07c;
+            }
+
+            .button-7:focus {
+                box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+            }
+
+            .button-7:active {
+                background-color: #0064bd;
+                box-shadow: none;
+            }
+
+            header{
+                /* background-color: aqua; */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 10vh;
+                
+            }
+
+            main form{
+                height: 80vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            footer{
+                height: 10vh;
+            }
+
+            header h1{
+                font-size: 40px;
+                background: linear-gradient(0deg, rgba(0,146,158,1) 36%, rgba(0,40,168,0.9417892156862745) 96%);
+                -webkit-text-fill-color: transparent; 
+                -webkit-background-clip: text; 
+            }
+
+            main label{
+                font-family: 'Roboto Slab', serif;
+                font-size: 23px;
+                
+            }
+
+            .custom-hr{
+                border-color: rgb(255, 255, 255); 
+            }
+
+            .message{
+                margin-top: 10vh;
+                height: 30px;
+                width: auto;
+                background-color: rgb(225, 255, 221);
+                padding: 5px 20px 0px 20px;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 20px;
+                color: rgb(7, 7, 152);
+                border: 1px solid rgb(28, 101, 203);
+            }
+
+            footer{
+                display: flex;
+                justify-content: space-around;
+            }
+
+            
+        </style>
+    </head>
+
+    <body>
+
+    <header>
+            <h1>Gussing Game</h1>
+    </header> 
+
+    <hr class="custom-hr">
+
+    <main>
+        <form action="/process" method="POST">
+            <div class="low_ip">
+                <label for="lower limit">Enter the Lowest Value: </label> &nbsp; &nbsp;
+                <input type="number" name="num1" id="num1" placeholder="{{num1}}">
+            </div>
+
+            <br>
+
+            <div class="high_ip">
+                <label for="higer limit">Enter the Highest Value: </label> &nbsp;   
+                <input type="number" name="num2" id="num2" placeholder="{{num2}}">
+            </div>
+                  <br>
+                  <hr>
+                  <br>
+            <div class="ip">
+                <label for="user_input">Enter your Guess: </label> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  
+                <input type="number" name="guess" id="guess">
+            </div>
+
+            <button class="button-7" role="button" type="submit">Check Luck</button>
+
+            <div class="message">
+                <p placeholder="Best of Luck">{{ message }}</p>
+            </div>
+
+        </form>
+        
+    </main>
+
+        <footer>
+            <p>For these type of amazing content please follow us on <span><a href="https://youtube.com/@your_coder_guy?si=k1m87XCRdYCbXpnN" target='_blank' >Youtube</a></span></p>
+            <p>You have <span>{{attempts_left}}</span> Chances remaining</p>
+        </footer>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
